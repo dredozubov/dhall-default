@@ -1,0 +1,1 @@
+{ bar : Optional Text, quuz : Optional Text }
