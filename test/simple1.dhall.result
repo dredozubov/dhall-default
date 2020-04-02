@@ -1,1 +1,2 @@
-{ bar : Optional Text, quuz : Optional Text }
+  { bar = None Text, quuz = None Text }
+: { bar : Optional Text, quuz : Optional Text }
