@@ -32,7 +32,7 @@ transformRec (Record m) = do
     Left tcErr -> Left $ "Please report a bug.\n"
       <> "expression: " <> (T.pack $ show $ prettyExpr expr) <> "\n"
       <> (pack $ show tcErr)
-    Right res  -> pure res
+    Right _    -> pure expr
   where
     processField
       :: Text
@@ -50,7 +50,7 @@ main = do
   opts <- getRecord "Opts"
   contents <- T.readFile $ filename opts
   doc <- inputExpr contents
-  print doc -- debug
+  -- print doc -- debug
   case transformRec doc of
     Left err -> T.hPutStr stderr err
     Right r  -> T.hPutStr stdout $ T.pack $ show $ prettyExpr r
